@@ -1,19 +1,23 @@
 :root {
-    --primary-color: #8B4513; /* 棕褐色 */
-    --bg-color: #FFFFF0; /* 羊皮纸色 */
-    --text-color: #333;
+    --bg-day: #FFFFF0; /* 日间背景 */
+    --bg-night: #1A1A1A; /* 夜间背景 */
+    --text-day: #333; /* 日间文字 */
+    --text-night: #E0E0E0; /* 夜间文字 */
+    --accent: #8B4513; /* 强调色 */
 }
 
-[data-dark-mode] {
-    --bg-color: #2D2D2D;
-    --text-color: #E0E0E0;
+[data-nightmode="true"] {
+    --bg-day: var(--bg-night);
+    --text-day: var(--text-night);
 }
 
 body {
     font-family: "宋体", SimSun, serif;
-    line-height: 1.8;
     margin: 0;
-    background: #f5f5dc;
+    background: var(--bg-day);
+    color: var(--text-day);
+    line-height: 1.8;
+    transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -25,30 +29,22 @@ body {
     padding: 0 20px;
 }
 
-#sidebar {
-    position: sticky;
-    top: 20px;
-    height: 90vh;
-    overflow-y: auto;
-    padding-right: 15px;
-}
-
 #reader {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--bg-day);
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 70vh;
 }
 
 .pagination {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
 }
 
 button {
     padding: 8px 20px;
-    background: var(--primary-color);
+    background: var(--accent);
     color: white;
     border: none;
     border-radius: 3px;
@@ -56,4 +52,14 @@ button {
     transition: opacity 0.3s;
 }
 
-/* 更多完整样式需下载文件查看... */
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+#sidebar {
+    position: sticky;
+    top: 20px;
+    height: 90vh;
+    overflow-y: auto;
+}

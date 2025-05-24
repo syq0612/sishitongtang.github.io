@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-nightmode="false">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 头部导航 -->
-    <header>
+    <header class="header">
         <h1>《四世同堂》电子版</h1>
-        <div class="tools">
-     
-            <input type="search" id="search" placeholder="搜索全书...">
+        <div class="controls">
+            <button id="nightModeBtn">🌓 夜间模式</button>
         </div>
     </header>
 
-    <!-- 主体容器 -->
     <div class="container">
-        <!-- 目录侧边栏 -->
         <aside id="sidebar">
-            <h2>📜 目录</h2>
-            <ul id="toc"></ul>
+            <h2>📚 目录</h2>
+            <ul id="chapterList"></ul>
         </aside>
 
-        <!-- 阅读区域 -->
         <main id="reader">
             <div id="content"></div>
             <div class="pagination">
-                <button onclick="prevPage()">← 上一页</button>
-                <span id="page-info">第1页</span>
-                <button onclick="nextPage()">下一页 →</button>
+                <button id="prevPageBtn">← 上一页</button>
+                <span id="pageInfo">第1页/共1页</span>
+                <button id="nextPageBtn">下一页 →</button>
             </div>
         </main>
     </div>
-
-    <!-- 页脚声明 -->
-    <footer>
-        <p>依据《中华人民共和国著作权法》第二十四条提供已进入公有领域的文本</p>
-    </footer>
 
     <script src="app.js"></script>
 </body>
